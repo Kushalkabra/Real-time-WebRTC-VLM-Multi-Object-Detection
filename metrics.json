@@ -1,0 +1,10 @@
+{
+  "median_e2e_ms": 273,
+  "p95_e2e_ms": 925,
+  "median_network_ms": 0,
+  "median_server_ms": 269,
+  "fps": 1.19,
+  "uplink_kbps": 1009,
+  "downlink_kbps": 945,
+  "_server_ts": 1755596786646
+}
