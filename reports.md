@@ -38,7 +38,7 @@ The project includes headless benchmark scripts for automated metrics collection
 
 **Windows PowerShell:**
 ```powershell
-./bench/run_bench.ps1 --duration 30 --mode wasm
+./bench/run_bench.ps1 30 wasm
 ```
 
 **macOS/Linux:**
