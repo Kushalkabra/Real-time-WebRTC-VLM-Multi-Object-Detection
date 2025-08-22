@@ -47,7 +47,6 @@ Tip: After rebuilds, the tunnel URL changes. Always use the latest QR/link.
 - Negative latencies? Reload; clock sync runs on DataChannel open
 - High CPU? Switch to 320×240 (qvga) and keep detection enabled in WASM mode
 
-### License
-MIT
+
 
 
