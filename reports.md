@@ -33,6 +33,31 @@ This demo streams a phone camera to a laptop via WebRTC, performs on-device WASM
 - median_e2e_ms ≈ 273; p95_e2e_ms ≈ 521; fps ≈ 6.1; uplink_kbps ≈ 1560; downlink_kbps ≈ 1570.
 - CPU (30s average): Browser ≈ 3.2%, Container ≈ 0.2%.
 
+### Bench script usage
+The project includes headless benchmark scripts for automated metrics collection:
+
+**Windows PowerShell:**
+```powershell
+./bench/run_bench.ps1 --duration 30 --mode wasm
+```
+
+**macOS/Linux:**
+```bash
+./bench/run_bench.sh --duration 30 --mode wasm
+```
+
+**How it works:**
+1. Start the demo with phone streaming to receiver
+2. Run the bench script with desired duration (default: 30s) and mode
+3. Script polls `/api/metrics` endpoint every second during the run
+4. After completion, saves aggregated metrics to `metrics.json` in project root
+5. Output includes median/p95 E2E latency, FPS, bandwidth, and CPU usage
+
+**Manual collection alternative:**
+- Run the demo normally
+- Click "Save metrics.json" button on receiver page after 30+ seconds of streaming
+- Metrics are automatically downloaded and also saved server-side
+
 ### Tradeoffs and next steps
 - Tradeoff: WASM for portability vs. lower FPS; improvement: server mode with quantized ONNX model (e.g., YOLOv5n) and dynamic frame rate.
 - Add proper RTT-based clock sync; unify metrics to a bench script that automates collection.
