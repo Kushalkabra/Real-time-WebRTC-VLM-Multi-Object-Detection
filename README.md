@@ -47,6 +47,18 @@ Tip: After rebuilds, the tunnel URL changes. Always use the latest QR/link.
 - Negative latencies? Reload; clock sync runs on DataChannel open
 - High CPU? Switch to 320×240 (qvga) and keep detection enabled in WASM mode
 
+#### Phone scans QR but shows “localhost can’t be reached”
+This happens if the QR encodes `http://localhost:3000/...` (works only on the laptop itself). Use one of:
+
+- Recommended (tunnel HTTPS):
+  - PowerShell: `$env:TUNNEL="1"; $env:MODE="wasm"; npm start`
+  - Click Create Room again. Scan the new `https://….loca.lt` QR on the phone. If a password page appears, scroll, reveal password, and proceed.
+
+- Same Wi‑Fi (no tunnel):
+  - Find the laptop LAN IP (e.g., `192.168.1.23`).
+  - Start server: `$env:TUNNEL="0"; $env:MODE="wasm"; npm start`
+  - On the phone, open `http://<LAN_IP>:3000/phone?room=<ROOM>` (copy ROOM from the laptop page). Do not use a QR that contains localhost.
+
 
 
 
